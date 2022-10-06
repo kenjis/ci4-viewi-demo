@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d648ee3b65e8d352e12e15817702e7cd",
+    "content-hash": "76bcf2a75e4fa698f91f18fe5c5550e9",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -251,6 +251,62 @@
                 "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
             "time": "2021-05-03T11:20:27+00:00"
+        },
+        {
+            "name": "viewi/viewi",
+            "version": "v0.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/viewi/viewi.git",
+                "reference": "122807b49fe877f4baf911149bc6e24f4b2f07fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/viewi/viewi/zipball/122807b49fe877f4baf911149bc6e24f4b2f07fd",
+                "reference": "122807b49fe877f4baf911149bc6e24f4b2f07fd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.4 || ^8.0"
+            },
+            "bin": [
+                "bin/viewi"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Viewi\\": "src/Viewi/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Voitovych",
+                    "email": "col606v@gmail.com"
+                }
+            ],
+            "description": "Powerful tool for building progressive and completely reactive web applications",
+            "keywords": [
+                "reactive",
+                "template",
+                "ui",
+                "viewi"
+            ],
+            "support": {
+                "issues": "https://github.com/viewi/viewi/issues",
+                "source": "https://github.com/viewi/viewi/tree/v0.6.4"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/ivan.v",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-09-25T16:11:56+00:00"
         }
     ],
     "packages-dev": [
