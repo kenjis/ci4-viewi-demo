@@ -20,7 +20,10 @@
     "autoload": {
         "exclude-from-classmap": [
             "**/Database/Migrations/**"
-        ]
+        ],
+        "psr-4": {
+            "Components\\": "app/ViewiApp/Components/"
+        }
     },
     "autoload-dev": {
         "psr-4": {

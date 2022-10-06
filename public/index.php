@@ -65,3 +65,7 @@ $app->setContext($context);
  */
 
 $app->run();
+
+// Viewi application here
+include __DIR__ . '/../app/ViewiApp/viewi.php';
+Viewi\App::handle();
