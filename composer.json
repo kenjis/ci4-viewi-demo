@@ -34,7 +34,10 @@
         }
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit",
+        "cs": "php-cs-fixer fix --ansi --verbose --dry-run --diff",
+        "cs-fix": "php-cs-fixer fix --ansi --verbose --diff --using-cache=yes",
+        "style": "@cs-fix"
     },
     "support": {
         "forum": "http://forum.codeigniter.com/",
