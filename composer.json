@@ -6,8 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.4 || ^8.0",
-        "codeigniter4/framework": "^4.0",
-        "viewi/viewi": "^0.6.4"
+        "viewi/viewi": "^0.6.4",
+        "codeigniter4/codeigniter4": "4.3.x-dev"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
@@ -48,5 +48,11 @@
         "allow-plugins": {
             "phpstan/extension-installer": true
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/codeigniter4/codeigniter4"
+        }
+    ]
 }
