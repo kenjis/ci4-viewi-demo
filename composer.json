@@ -12,8 +12,11 @@
     "require-dev": {
         "fakerphp/faker": "^1.9",
         "mikey179/vfsstream": "^1.6",
-        "phpunit/phpunit": "^9.1"
+        "phpunit/phpunit": "^9.1",
+        "codeigniter4/devkit": "^1.1"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "suggest": {
         "ext-fileinfo": "Improves mime type detection for files"
     },
@@ -37,5 +40,10 @@
         "forum": "http://forum.codeigniter.com/",
         "source": "https://github.com/codeigniter4/CodeIgniter4",
         "slack": "https://codeigniterchat.slack.com"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
     }
 }
