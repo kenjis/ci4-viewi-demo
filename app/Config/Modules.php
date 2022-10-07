@@ -49,10 +49,8 @@ class Modules extends BaseModules
      *           'pestphp/pest',
      *       ],
      *   ]
-     *
-     * @var array
      */
-    public $composerPackages = [];
+    public array $composerPackages = [];
 
     /**
      * --------------------------------------------------------------------------
