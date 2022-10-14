@@ -3,6 +3,9 @@
 namespace Config;
 
 // Create a new instance of our RouteCollection class.
+use App\Adapters\RawJsonResponse;
+use Components\Models\PostModel;
+
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
@@ -36,6 +39,17 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
+$routes->get('api/posts/(:num)', static function ($id) {
+    $postModel          = new PostModel();
+    $postModel->Id      = (int) $id;
+    $postModel->Name    = 'CodeIgniter4 ft. Viewi';
+    $postModel->Version = 1;
+
+    $response = new RawJsonResponse(config('App'));
+
+    return $response->setData($postModel)->withJsonHeader();
+});
 
 /*
  * --------------------------------------------------------------------
