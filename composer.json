@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.4 || ^8.0",
+        "ext-json": "*",
         "viewi/viewi": "^0.6.4",
         "codeigniter4/codeigniter4": "4.3.x-dev"
     },
