@@ -14,6 +14,24 @@ $ php spark serve
 
 Navigate to <http://localhost:8080/>.
 
+## Folder Structure
+
+```
+.
+├── app/
+│   ├── Adapters/ ... Adapters for Viewi
+│   └── ViewiApp/ ... Viewi App
+│        ├── Components/
+│        │   ├── Models/
+│        │   ├── Services/
+│        │   └── Views/
+│        ├── build/     ... Do not touch
+│        ├── config.php ... Viewi config file
+│        └── routes.php ... Viewi routes file
+├── public/
+│   └── viewi-build/ ... Do not touch
+```
+
 ## How to Code
 
 `app/ViewiApp/Components/Views/Counter/Counter.php`:
