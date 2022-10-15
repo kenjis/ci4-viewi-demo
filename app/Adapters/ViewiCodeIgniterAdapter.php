@@ -21,18 +21,7 @@ class ViewiCodeIgniterAdapter extends RouteAdapterBase
 
     public function register($method, $url, $component, $defaults): void
     {
-        /** @var RouteCollection $routes */
-        $routes = Services::routes();
-
-        // replace route params `{name}` with placeholders.
-        // @TODO now supports only `{name}`.
-        $url = preg_replace('/{\w+?}/', '(:segment)', $url);
-
-        $routes->{$method}($url, static function (...$params) use ($component) {
-            $controller = new ViewiCodeIgniterComponent($component);
-
-            return $controller->index($params);
-        }, ['as' => $component]);
+        // skip, we use 404 handler to catch all Viewi routes. No need to convert route syntax.
     }
 
     public function handle($method, $url, $params = null)

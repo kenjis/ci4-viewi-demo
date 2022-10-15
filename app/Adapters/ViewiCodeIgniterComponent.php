@@ -6,6 +6,8 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Config\Services;
 use Viewi\App;
 
+// Redundant ??
+
 class ViewiCodeIgniterComponent
 {
     private string $component;
