@@ -2,10 +2,10 @@
 
 namespace Config;
 
-// Create a new instance of our RouteCollection class.
 use App\Adapters\RawJsonResponse;
 use Components\Models\PostModel;
 
+// Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
