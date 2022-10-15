@@ -69,3 +69,4 @@ class Counter extends BaseComponent
 
 - https://www.codeigniter.com/
 - https://viewi.net/
+- https://github.com/kenjis/ci4-viewi-tour-of-heroes
