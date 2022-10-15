@@ -52,6 +52,7 @@ class ViewiCodeIgniterAdapter extends RouteAdapterBase
             'php://input',
             $userAgent
         );
+        $request->setMethod($method);
         $request->setPath($url);
         $app->setRequest($request);
 
