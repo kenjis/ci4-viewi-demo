@@ -39,7 +39,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// Commented out, let the Viewi handle the Home page 
+// Commented out, let the Viewi handle the Home page
 // $routes->get('/', 'Home::index');
 
 $routes->get('api/posts/(:num)', static function ($id) {

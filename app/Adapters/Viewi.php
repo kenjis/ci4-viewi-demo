@@ -3,10 +3,7 @@
 namespace App\Adapters;
 
 use CodeIgniter\CodeIgniter;
-use Config\Services;
-use Exception;
 use Viewi\Routing\Route;
-use Viewi\Routing\Router;
 
 /**
  * Viewi initializer
