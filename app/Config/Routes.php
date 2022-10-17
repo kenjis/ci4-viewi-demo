@@ -70,4 +70,4 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 }
 
 // Viewi here, after all other routes
-\App\Adapters\Viewi::init(Services::codeigniter()); // is there any better way to get the $app instance ??
+\App\Adapters\Viewi::init(Services::codeigniter());
