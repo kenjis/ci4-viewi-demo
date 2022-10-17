@@ -68,6 +68,25 @@ class Counter extends BaseComponent
 <button (click)="increment()" class="mui-btn mui-btn--accent">+</button>
 ```
 
+## How to Confirm Routes
+
+```console
+$ php spark routes
+
+CodeIgniter v4.2.7 Command Line Tool - Server Time: 2022-10-17 05:19:05 UTC-05:00
+
++--------+--------------------+----------------------------------------+-----------+----------------+---------------+
+| Method | Route              | Name                                   | Handler   | Before Filters | After Filters |
++--------+--------------------+----------------------------------------+-----------+----------------+---------------+
+| GET    | api/posts/([0-9]+) | »                                      | (Closure) |                | toolbar       |
+| GET    | /                  | Components\Views\Home\HomePage         | (Closure) |                | toolbar       |
+| GET    | counter            | Components\Views\Pages\CounterPage     | (Closure) |                | toolbar       |
+| GET    | todo               | Components\Views\Pages\TodoAppPage     | (Closure) |                | toolbar       |
+| GET    | posts/([^/]+)      | Components\Views\Posts\PostsPage       | (Closure) |                | toolbar       |
+| GET    | (.*)               | Components\Views\NotFound\NotFoundPage | (Closure) |                | toolbar       |
++--------+--------------------+----------------------------------------+-----------+----------------+---------------+
+```
+
 ## References
 
 - https://www.codeigniter.com/
