@@ -13,6 +13,7 @@ use Viewi\Routing\RouteAdapterBase;
 class ViewiCodeIgniterAdapter extends RouteAdapterBase
 {
     private CodeIgniter $app;
+    private array $nameTracker = [];
 
     public function __construct(CodeIgniter $app)
     {
@@ -56,7 +57,11 @@ class ViewiCodeIgniterAdapter extends RouteAdapterBase
             }
             $ciUrl .= '/' . $segment;
         }
-
+        if (!isset($this->nameTracker[$component])) {
+            $this->nameTracker[$component] = -1;
+        }
+        $this->nameTracker[$component]++;
+        $as = $this->nameTracker[$component] === 0 ? $component : "$component-{$this->nameTracker[$component]}";
         $routes->{$method}($ciUrl, static function (...$params) use ($component, $paramNames) {
             $controller = new ViewiCodeIgniterComponent($component);
             // collect params
@@ -67,11 +72,7 @@ class ViewiCodeIgniterAdapter extends RouteAdapterBase
                 }
             }
             return $controller->index($viewiParams);
-        }, ['as' => $component]); 
-        // Question: Has 'as' parameter to be unique ? 
-        // if so, we need to add some random or incremented value to it
-        // since the component can be attached to multiple routes
-        // UseCase /posts/new, /posts/5 -> CreateEditPost component
+        }, ['as' => $as]);
     }
 
     public function handle($method, $url, $params = null)
