@@ -3,6 +3,16 @@
 > Viewi allows you to create reactive web applications using your favorite PHP. It converts your code into native javascript code to run it in the browser. This way, you get a perfectly rendered HTML page on the first load, and at the same time, your page will remain reactive without requesting each next page on link clicks, etc.
 https://viewi.net/
 
+![](docs/01-home.png)
+
+![](docs/02-counter.png)
+
+![](docs/03-todo.png)
+
+![](docs/04-post.png)
+
+![](docs/05-not-found.png)
+
 ## How to Run
 
 ```console
