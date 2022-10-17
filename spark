@@ -82,9 +82,6 @@ require_once SYSTEMPATH . 'Config/DotEnv.php';
 $app = Config\Services::codeigniter();
 $app->initialize();
 
-// Viewi
-\App\Adapters\Viewi::init($app);
-
 // Grab our Console
 $console = new CodeIgniter\CLI\Console();
 
