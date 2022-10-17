@@ -7,7 +7,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
-        "viewi/viewi": "^0.6.4",
+        "viewi/viewi": "~0.6",
         "codeigniter4/codeigniter4": "4.3.x-dev"
     },
     "require-dev": {
@@ -48,7 +48,8 @@
     },
     "config": {
         "allow-plugins": {
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "composer/package-versions-deprecated": true
         }
     },
     "repositories": [

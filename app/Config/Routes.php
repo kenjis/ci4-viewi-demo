@@ -24,6 +24,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
+
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -38,7 +39,8 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+// Commented out, let the Viewi handle the Home page
+// $routes->get('/', 'Home::index');
 
 $routes->get('api/posts/(:num)', static function ($id) {
     $postModel          = new PostModel();
@@ -67,3 +69,6 @@ $routes->get('api/posts/(:num)', static function ($id) {
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+
+// Viewi here, after all other routes
+\App\Adapters\Viewi::init(Services::codeigniter()); // is there any better way to get the $app instance ??
