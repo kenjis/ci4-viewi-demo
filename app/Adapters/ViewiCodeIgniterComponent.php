@@ -22,7 +22,9 @@ class ViewiCodeIgniterComponent
         $response = Services::response();
 
         $viewiResponse = App::run($this->component, $params);
-
+        if (isset(($this->component)::$STATUS_CODE)) {
+            $response->setStatusCode(($this->component)::$STATUS_CODE);
+        }
         if (is_string($viewiResponse)) { // html
             return $response->setBody($viewiResponse);
         }
