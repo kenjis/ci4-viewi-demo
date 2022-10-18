@@ -72,8 +72,8 @@ class ViewiCodeIgniterAdapter extends RouteAdapterBase
         $as = ($this->nameTracker[$component] === 0) ? $component
             : "{$component}-{$this->nameTracker[$component]}";
 
-        $routes->{$method}($ciUrl, static function (...$params) use ($component, $paramNames) {
-            $controller = new ViewiCodeIgniterComponent($component);
+        $routes->{$method}($ciUrl, static function (...$params) use ($component, $paramNames, $defaults) {
+            $controller = new ViewiCodeIgniterComponent($component, $defaults);
             // collect params
             $viewiParams = [];
 

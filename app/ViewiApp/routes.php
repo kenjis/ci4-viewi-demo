@@ -13,4 +13,6 @@ ViewiRoute::get('/todo', TodoAppPage::class);
 ViewiRoute::get('/posts/{postId}', PostsPage::class);
 
 // 404 page, at the end.
-ViewiRoute::get('*', NotFoundPage::class);
+ViewiRoute::get('*', NotFoundPage::class, [
+    'statusCode' => 404,
+]);

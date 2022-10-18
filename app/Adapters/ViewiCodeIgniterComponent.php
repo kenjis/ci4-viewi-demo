@@ -9,10 +9,12 @@ use Viewi\App;
 class ViewiCodeIgniterComponent
 {
     private string $component;
+    private ?array $defaults = null;
 
-    public function __construct(string $component)
+    public function __construct(string $component, ?array $defaults = null)
     {
         $this->component = $component;
+        $this->defaults  = $defaults;
     }
 
     public function index(array $params): ResponseInterface
@@ -21,8 +23,8 @@ class ViewiCodeIgniterComponent
 
         $viewiResponse = App::run($this->component, $params);
 
-        if (isset(($this->component)::$STATUS_CODE)) {
-            $response->setStatusCode(($this->component)::$STATUS_CODE);
+        if (isset($this->defaults['statusCode'])) {
+            $response->setStatusCode($this->defaults['statusCode']);
         }
 
         if (is_string($viewiResponse)) { // html
