@@ -69,7 +69,7 @@ class ViewiCodeIgniterAdapter extends RouteAdapterBase
         }
 
         $this->nameTracker[$component]++;
-        $as = $this->nameTracker[$component] === 0 ? $component
+        $as = ($this->nameTracker[$component] === 0) ? $component
             : "{$component}-{$this->nameTracker[$component]}";
 
         $routes->{$method}($ciUrl, static function (...$params) use ($component, $paramNames, $defaults) {
