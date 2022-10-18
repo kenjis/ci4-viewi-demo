@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a6a4c3667ed0ff1ef3d89b93a1dc6be",
+    "content-hash": "bbef32d13dfd91d8dc04a529a8fcaa1c",
     "packages": [
         {
             "name": "codeigniter4/codeigniter4",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codeigniter4/CodeIgniter4.git",
-                "reference": "cca6295f4df8e3033c8b84a663a7e917bd3fff81"
+                "reference": "258bc3e90ff35d5b63d6ede3000484a6ee85d748"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codeigniter4/CodeIgniter4/zipball/cca6295f4df8e3033c8b84a663a7e917bd3fff81",
-                "reference": "cca6295f4df8e3033c8b84a663a7e917bd3fff81",
+                "url": "https://api.github.com/repos/codeigniter4/CodeIgniter4/zipball/258bc3e90ff35d5b63d6ede3000484a6ee85d748",
+                "reference": "258bc3e90ff35d5b63d6ede3000484a6ee85d748",
                 "shasum": ""
             },
             "require": {
@@ -120,7 +120,7 @@
                 "slack": "https://codeigniterchat.slack.com",
                 "issues": "https://github.com/codeigniter4/CodeIgniter4/issues"
             },
-            "time": "2022-10-14T01:35:35+00:00"
+            "time": "2022-10-17T07:50:41+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -236,16 +236,16 @@
         },
         {
             "name": "viewi/viewi",
-            "version": "v0.6.4",
+            "version": "v0.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/viewi/viewi.git",
-                "reference": "122807b49fe877f4baf911149bc6e24f4b2f07fd"
+                "reference": "6bb9c2ff4e93acd3a6e2298f38fe00e73c52e092"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/viewi/viewi/zipball/122807b49fe877f4baf911149bc6e24f4b2f07fd",
-                "reference": "122807b49fe877f4baf911149bc6e24f4b2f07fd",
+                "url": "https://api.github.com/repos/viewi/viewi/zipball/6bb9c2ff4e93acd3a6e2298f38fe00e73c52e092",
+                "reference": "6bb9c2ff4e93acd3a6e2298f38fe00e73c52e092",
                 "shasum": ""
             },
             "require": {
@@ -280,7 +280,7 @@
             ],
             "support": {
                 "issues": "https://github.com/viewi/viewi/issues",
-                "source": "https://github.com/viewi/viewi/tree/v0.6.4"
+                "source": "https://github.com/viewi/viewi/tree/v0.7.2"
             },
             "funding": [
                 {
@@ -288,7 +288,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2022-09-25T16:11:56+00:00"
+            "time": "2022-10-13T10:05:34+00:00"
         }
     ],
     "packages-dev": [
@@ -460,21 +460,21 @@
         },
         {
             "name": "codeigniter/coding-standard",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CodeIgniter/coding-standard.git",
-                "reference": "7c2344a0312eb182ae6409fe670de6d9845081e2"
+                "reference": "69daf39fa6058cead3981aeb9ec87e703e1a9ed7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CodeIgniter/coding-standard/zipball/7c2344a0312eb182ae6409fe670de6d9845081e2",
-                "reference": "7c2344a0312eb182ae6409fe670de6d9845081e2",
+                "url": "https://api.github.com/repos/CodeIgniter/coding-standard/zipball/69daf39fa6058cead3981aeb9ec87e703e1a9ed7",
+                "reference": "69daf39fa6058cead3981aeb9ec87e703e1a9ed7",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "friendsofphp/php-cs-fixer": "^3.11",
+                "friendsofphp/php-cs-fixer": "^3.12",
                 "nexusphp/cs-config": "^3.6",
                 "php": "^7.4 || ^8.0"
             },
@@ -510,7 +510,7 @@
                 "slack": "https://codeigniterchat.slack.com",
                 "source": "https://github.com/CodeIgniter/coding-standard"
             },
-            "time": "2022-09-13T05:27:06+00:00"
+            "time": "2022-10-15T15:43:46+00:00"
         },
         {
             "name": "codeigniter4/devkit",
@@ -1542,21 +1542,21 @@
         },
         {
             "name": "nexusphp/cs-config",
-            "version": "v3.6.0",
+            "version": "v3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NexusPHP/cs-config.git",
-                "reference": "59546a38b02a00d8bdc415a1ae5336f034b05270"
+                "reference": "ed3070c3335986da842dea1222835946c19b2894"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NexusPHP/cs-config/zipball/59546a38b02a00d8bdc415a1ae5336f034b05270",
-                "reference": "59546a38b02a00d8bdc415a1ae5336f034b05270",
+                "url": "https://api.github.com/repos/NexusPHP/cs-config/zipball/ed3070c3335986da842dea1222835946c19b2894",
+                "reference": "ed3070c3335986da842dea1222835946c19b2894",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "friendsofphp/php-cs-fixer": "^3.11",
+                "friendsofphp/php-cs-fixer": "^3.12",
                 "php": "^7.4 || ^8.0"
             },
             "conflict": {
@@ -1598,9 +1598,13 @@
                 {
                     "url": "https://www.paypal.me/paulbalandan",
                     "type": "custom"
+                },
+                {
+                    "url": "https://github.com/paulbalandan",
+                    "type": "github"
                 }
             ],
-            "time": "2022-09-02T03:01:27+00:00"
+            "time": "2022-10-15T16:12:57+00:00"
         },
         {
             "name": "nexusphp/tachycardia",
@@ -1997,25 +2001,30 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "77a32518733312af16a44300404e945338981de3"
+                "reference": "48f445a408c131e38cab1c235aa6d2bb7a0bb20d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/77a32518733312af16a44300404e945338981de3",
-                "reference": "77a32518733312af16a44300404e945338981de3",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
+                "reference": "48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
                 "ext-tokenizer": "*",
-                "psalm/phar": "^4.8"
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan": "^1.8",
+                "phpstan/phpstan-phpunit": "^1.1",
+                "phpunit/phpunit": "^9.5",
+                "rector/rector": "^0.13.9",
+                "vimeo/psalm": "^4.25"
             },
             "type": "library",
             "extra": {
@@ -2041,9 +2050,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.1"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.2"
             },
-            "time": "2022-03-15T21:29:03+00:00"
+            "time": "2022-10-14T12:47:21+00:00"
         },
         {
             "name": "phpstan/extension-installer",

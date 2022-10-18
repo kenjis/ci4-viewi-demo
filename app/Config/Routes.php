@@ -2,10 +2,10 @@
 
 namespace Config;
 
-// Create a new instance of our RouteCollection class.
 use App\Adapters\RawJsonResponse;
 use Components\Models\PostModel;
 
+// Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
@@ -24,7 +24,6 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -71,4 +70,4 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 }
 
 // Viewi here, after all other routes
-\App\Adapters\Viewi::init(Services::codeigniter()); // is there any better way to get the $app instance ??
+\App\Adapters\Viewi::init(Services::codeigniter());
