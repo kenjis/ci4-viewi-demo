@@ -2,8 +2,7 @@
 
 namespace Config;
 
-use App\Adapters\RawJsonResponse;
-use Components\Models\PostModel;
+use App\Controllers\Api\Posts;
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
@@ -41,16 +40,7 @@ $routes->set404Override();
 // Commented out, let the Viewi handle the Home page
 // $routes->get('/', 'Home::index');
 
-$routes->get('api/posts/(:num)', static function ($id) {
-    $postModel          = new PostModel();
-    $postModel->Id      = (int) $id;
-    $postModel->Name    = 'CodeIgniter4 ft. Viewi';
-    $postModel->Version = 1;
-
-    $response = new RawJsonResponse(config('App'));
-
-    return $response->setData($postModel)->withJsonHeader();
-});
+$routes->get('api/posts/(:num)', [Posts::class, 'index']);
 
 /*
  * --------------------------------------------------------------------

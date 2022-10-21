@@ -78,18 +78,19 @@ class Counter extends BaseComponent
 ```console
 $ php spark routes
 
-CodeIgniter v4.2.7 Command Line Tool - Server Time: 2022-10-17 05:19:05 UTC-05:00
+CodeIgniter v4.2.7 Command Line Tool - Server Time: 2022-10-20 20:04:40 UTC-05:00
 
-+--------+--------------------+----------------------------------------+-----------+----------------+---------------+
-| Method | Route              | Name                                   | Handler   | Before Filters | After Filters |
-+--------+--------------------+----------------------------------------+-----------+----------------+---------------+
-| GET    | api/posts/([0-9]+) | »                                      | (Closure) |                | toolbar       |
-| GET    | /                  | Components\Views\Home\HomePage         | (Closure) |                | toolbar       |
-| GET    | counter            | Components\Views\Pages\CounterPage     | (Closure) |                | toolbar       |
-| GET    | todo               | Components\Views\Pages\TodoAppPage     | (Closure) |                | toolbar       |
-| GET    | posts/([^/]+)      | Components\Views\Posts\PostsPage       | (Closure) |                | toolbar       |
-| GET    | (.*)               | Components\Views\NotFound\NotFoundPage | (Closure) |                | toolbar       |
-+--------+--------------------+----------------------------------------+-----------+----------------+---------------+
++--------+--------------------+----------------------------------------+--------------------------------------+----------------+---------------+
+| Method | Route              | Name                                   | Handler                              | Before Filters | After Filters |
++--------+--------------------+----------------------------------------+--------------------------------------+----------------+---------------+
+| GET    | api/posts/([0-9]+) | »                                      | \App\Controllers\Api\Posts::index/$1 |                | toolbar       |
+| GET    | /                  | Components\Views\Home\HomePage         | (Closure)                            |                | toolbar       |
+| GET    | counter            | Components\Views\Pages\CounterPage     | (Closure)                            |                | toolbar       |
+| GET    | todo               | Components\Views\Pages\TodoAppPage     | (Closure)                            |                | toolbar       |
+| GET    | posts/([^/]+)      | Components\Views\Posts\PostsPage       | (Closure)                            |                | toolbar       |
+| GET    | (.*)               | Components\Views\NotFound\NotFoundPage | (Closure)                            |                | toolbar       |
++--------+--------------------+----------------------------------------+--------------------------------------+----------------+---------------+
+
 ```
 
 ## References
