@@ -58,6 +58,13 @@ class ViewiCodeIgniterAdapter extends RouteAdapterBase
         }, ['as' => $as]);
     }
 
+    /**
+     * @param string     $method
+     * @param string     $url
+     * @param array|null $params
+     *
+     * @return array|mixed|object
+     */
     public function handle($method, $url, $params = null)
     {
         /** @var CodeIgniter $app */
