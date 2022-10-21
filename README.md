@@ -4,13 +4,8 @@
 https://viewi.net/
 
 ![](docs/01-home.png)
-
 ![](docs/02-counter.png)
-
 ![](docs/03-todo.png)
-
-![](docs/04-post.png)
-
 ![](docs/05-not-found.png)
 
 ## How to Run
