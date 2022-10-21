@@ -15,7 +15,9 @@ class Viewi
      */
     public static function init(CodeIgniter $app): void
     {
-        $adapter = new ViewiCodeIgniterAdapter($app);
+        $converter = new RouteSyntaxConverter();
+        $adapter   = new ViewiCodeIgniterAdapter($app, $converter);
+
         Route::setAdapter($adapter);
         require __DIR__ . '/../ViewiApp/viewi.php';
     }
