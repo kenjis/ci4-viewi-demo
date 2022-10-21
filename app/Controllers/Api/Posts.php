@@ -15,7 +15,7 @@ class Posts extends BaseController
         $postModel->Name    = 'CodeIgniter4 ft. Viewi';
         $postModel->Version = 1;
 
-        $response = new RawJsonResponse(config('App'));
+        $response = new RawJsonResponse();
 
         return $response->setData($postModel)->withJsonHeader();
     }

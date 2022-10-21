@@ -14,6 +14,13 @@ final class RawJsonResponse extends Response
      */
     private $rawData;
 
+    public function __construct()
+    {
+        $config = config('App');
+
+        parent::__construct($config);
+    }
+
     /**
      * @param array|object $data
      *
