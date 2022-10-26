@@ -92,6 +92,9 @@ CodeIgniter v4.2.7 Command Line Tool - Server Time: 2022-10-20 20:04:40 UTC-05:0
 +--------+--------------------+----------------------------------------+--------------------------------------+----------------+---------------+
 
 ```
+## How Viewi Works with CodeIgniter
+
+See [CodeIgniter 4 Integration | Viewi](https://viewi.net/docs/integrations-code-igniter4).
 
 ## References
 
