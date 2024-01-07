@@ -1,45 +1,16 @@
 <?php
 
-namespace Config;
-
-use App\Adapters\RawJsonResponse;
+use App\ViewiBridge\ViewiHandler;
+use App\ViewiBridge\TypedResponse;
+use App\ViewiBridge\ViewiCodeIgniterBridge;
+use CodeIgniter\Router\RouteCollection;
 use Components\Models\PostModel;
+use Viewi\App;
+use Viewi\Bridge\IViewiBridge;
 
-// Create a new instance of our RouteCollection class.
-$routes = Services::routes();
-
-// Load the system's routing file first, so that the app and ENVIRONMENT
-// can override as needed.
-if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
-    require SYSTEMPATH . 'Config/Routes.php';
-}
-
-/*
- * --------------------------------------------------------------------
- * Router Setup
- * --------------------------------------------------------------------
+/**
+ * @var RouteCollection $routes
  */
-$routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
-$routes->setTranslateURIDashes(false);
-$routes->set404Override();
-// The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
-// where controller filters or CSRF protection are bypassed.
-// If you don't want to define all routes, please use the Auto Routing (Improved).
-// Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
-
-/*
- * --------------------------------------------------------------------
- * Route Definitions
- * --------------------------------------------------------------------
- */
-
-// We get a performance increase by specifying the default
-// route since we don't have to scan directories.
-// Commented out, let the Viewi handle the Home page
-// $routes->get('/', 'Home::index');
 
 $routes->get('api/posts/(:num)', static function ($id) {
     $postModel          = new PostModel();
@@ -47,27 +18,29 @@ $routes->get('api/posts/(:num)', static function ($id) {
     $postModel->Name    = 'CodeIgniter4 ft. Viewi';
     $postModel->Version = 1;
 
-    $response = new RawJsonResponse(config('App'));
-
-    return $response->setData($postModel)->withJsonHeader();
+    $response = (new TypedResponse(config('App')))->setJSON($postModel);
+    return $response;
 });
 
-/*
- * --------------------------------------------------------------------
- * Additional Routing
- * --------------------------------------------------------------------
- *
- * There will often be times that you need additional routing and you
- * need it to be able to override any defaults in this file. Environment
- * based routes is one such time. require() additional route files here
- * to make that happen.
- *
- * You will have access to the $routes object within that file without
- * needing to reload it.
- */
-if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+function viewiSetUp(RouteCollection $routes)
+{
+    /**
+     * @var App
+     */
+    $app = require __DIR__ . '/../ViewiApp/viewi.php';
+    require __DIR__ . '/../ViewiApp/routes.php';
+    $bridge = new ViewiCodeIgniterBridge();
+    $app->factory()->add(IViewiBridge::class, function () use ($bridge) {
+        return $bridge;
+    });
+    ViewiHandler::setViewiApp($app);
+
+    $routes->set404Override('App\ViewiBridge\ViewiHandler::handle');
 }
 
-// Viewi here, after all other routes
-\App\Adapters\Viewi::init(Services::codeigniter());
+// I do not know the specifics of CI4, so using this for troubleshooting
+try {
+    viewiSetUp($routes);
+} catch (Throwable $ex) {
+    echo $ex->__toString();
+}

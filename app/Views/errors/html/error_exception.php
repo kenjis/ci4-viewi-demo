@@ -1,4 +1,9 @@
-<?php $error_id = uniqid('error', true); ?>
+<?php
+use Config\Services;
+use CodeIgniter\CodeIgniter;
+
+$errorId = uniqid('error', true);
+?>
 <!doctype html>
 <html>
 <head>
@@ -6,11 +11,11 @@
     <meta name="robots" content="noindex">
 
     <title><?= esc($title) ?></title>
-    <style type="text/css">
+    <style>
         <?= preg_replace('#[\r\n\t ]+#', ' ', file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'debug.css')) ?>
     </style>
 
-    <script type="text/javascript">
+    <script>
         <?= file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'debug.js') ?>
     </script>
 </head>
@@ -40,6 +45,30 @@
     </div>
 
     <div class="container">
+        <?php
+        $last = $exception;
+
+        while ($prevException = $last->getPrevious()) {
+            $last = $prevException;
+            ?>
+
+    <pre>
+    Caused by:
+    <?= esc(get_class($prevException)), esc($prevException->getCode() ? ' #' . $prevException->getCode() : '') ?>
+
+    <?= nl2br(esc($prevException->getMessage())) ?>
+    <a href="https://www.duckduckgo.com/?q=<?= urlencode(get_class($prevException) . ' ' . preg_replace('#\'.*\'|".*"#Us', '', $prevException->getMessage())) ?>"
+       rel="noreferrer" target="_blank">search &rarr;</a>
+    <?= esc(clean_path($prevException->getFile()) . ':' . $prevException->getLine()) ?>
+    </pre>
+
+        <?php
+        }
+        ?>
+    </div>
+
+    <?php if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE) : ?>
+    <div class="container">
 
         <ul class="tabs" id="tabs">
             <li><a href="#backtrace">Backtrace</a></li>
@@ -61,7 +90,7 @@
                     <li>
                         <p>
                             <!-- Trace info -->
-                            <?php if (isset($row['file']) && is_file($row['file'])) :?>
+                            <?php if (isset($row['file']) && is_file($row['file'])) : ?>
                                 <?php
                                 if (isset($row['function']) && in_array($row['function'], ['include', 'include_once', 'require', 'require_once'], true)) {
                                     echo esc($row['function'] . ' ' . clean_path($row['file']));
@@ -77,16 +106,16 @@
                             <?php if (isset($row['class'])) : ?>
                                 &nbsp;&nbsp;&mdash;&nbsp;&nbsp;<?= esc($row['class'] . $row['type'] . $row['function']) ?>
                                 <?php if (! empty($row['args'])) : ?>
-                                    <?php $args_id = $error_id . 'args' . $index ?>
-                                    ( <a href="#" onclick="return toggle('<?= esc($args_id, 'attr') ?>');">arguments</a> )
-                                    <div class="args" id="<?= esc($args_id, 'attr') ?>">
+                                    <?php $argsId = $errorId . 'args' . $index ?>
+                                    ( <a href="#" onclick="return toggle('<?= esc($argsId, 'attr') ?>');">arguments</a> )
+                                    <div class="args" id="<?= esc($argsId, 'attr') ?>">
                                         <table cellspacing="0">
 
                                         <?php
                                         $params = null;
                                         // Reflection by name is not available for closure function
                                         if (substr($row['function'], -1) !== '}') {
-                                            $mirror = isset($row['class']) ? new \ReflectionMethod($row['class'], $row['function']) : new \ReflectionFunction($row['function']);
+                                            $mirror = isset($row['class']) ? new ReflectionMethod($row['class'], $row['function']) : new ReflectionFunction($row['function']);
                                             $params = $mirror->getParameters();
                                         }
 
@@ -189,7 +218,7 @@
 
             <!-- Request -->
             <div class="content" id="request">
-                <?php $request = \Config\Services::request(); ?>
+                <?php $request = Services::request(); ?>
 
                 <table>
                     <tbody>
@@ -270,7 +299,7 @@
 
                 <?php endif; ?>
 
-                <?php $headers = $request->getHeaders(); ?>
+                <?php $headers = $request->headers(); ?>
                 <?php if (! empty($headers)) : ?>
 
                     <h3>Headers</h3>
@@ -283,21 +312,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($headers as $value) : ?>
-                            <?php
-                            if (empty($value)) {
-                                continue;
-                            }
-
-                            if (! is_array($value)) {
-                                $value = [$value];
-                            } ?>
-                            <?php foreach ($value as $h) : ?>
-                                <tr>
-                                    <td><?= esc($h->getName(), 'html') ?></td>
-                                    <td><?= esc($h->getValueLine(), 'html') ?></td>
-                                </tr>
-                            <?php endforeach; ?>
+                        <?php foreach ($headers as $header) : ?>
+                            <tr>
+                                <td><?= esc($header->getName(), 'html') ?></td>
+                                <td><?= esc($header->getValueLine(), 'html') ?></td>
+                            </tr>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -307,7 +326,7 @@
 
             <!-- Response -->
             <?php
-                $response = \Config\Services::response();
+                $response = Services::response();
                 $response->setStatusCode(http_response_code());
             ?>
             <div class="content" id="response">
@@ -318,7 +337,7 @@
                     </tr>
                 </table>
 
-                <?php $headers = $response->getHeaders(); ?>
+                <?php $headers = $response->headers(); ?>
                 <?php if (! empty($headers)) : ?>
                     <?php natsort($headers) ?>
 
@@ -332,7 +351,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($headers as $name => $value) : ?>
+                        <?php foreach (array_keys($headers) as $name) : ?>
                             <tr>
                                 <td><?= esc($name, 'html') ?></td>
                                 <td><?= esc($response->getHeaderLine($name), 'html') ?></td>
@@ -380,6 +399,7 @@
         </div>  <!-- /tab-content -->
 
     </div> <!-- /container -->
+    <?php endif; ?>
 
     <div class="footer">
         <div class="container">
@@ -387,7 +407,8 @@
             <p>
                 Displayed at <?= esc(date('H:i:sa')) ?> &mdash;
                 PHP: <?= esc(PHP_VERSION) ?>  &mdash;
-                CodeIgniter: <?= esc(\CodeIgniter\CodeIgniter::CI_VERSION) ?>
+                CodeIgniter: <?= esc(CodeIgniter::CI_VERSION) ?> --
+                Environment: <?= ENVIRONMENT ?>
             </p>
 
         </div>

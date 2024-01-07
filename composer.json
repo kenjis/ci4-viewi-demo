@@ -1,26 +1,23 @@
 {
     "name": "codeigniter4/appstarter",
-    "type": "project",
     "description": "CodeIgniter4 starter app",
-    "homepage": "https://codeigniter.com",
     "license": "MIT",
+    "type": "project",
+    "homepage": "https://codeigniter.com",
+    "support": {
+        "forum": "https://forum.codeigniter.com/",
+        "source": "https://github.com/codeigniter4/CodeIgniter4",
+        "slack": "https://codeigniterchat.slack.com"
+    },
     "require": {
         "php": "^7.4 || ^8.0",
-        "ext-json": "*",
-        "viewi/viewi": "~0.6",
-        "codeigniter4/codeigniter4": "4.3.x-dev"
+        "codeigniter4/framework": "^4.0",
+        "viewi/viewi": "^2.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
         "mikey179/vfsstream": "^1.6",
-        "phpunit/phpunit": "^9.1",
-        "codeigniter4/devkit": "^1.1",
-        "rector/rector": "0.14.5"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "suggest": {
-        "ext-fileinfo": "Improves mime type detection for files"
+        "phpunit/phpunit": "^9.1"
     },
     "autoload": {
         "exclude-from-classmap": [
@@ -35,27 +32,12 @@
             "Tests\\Support\\": "tests/_support"
         }
     },
-    "scripts": {
-        "test": "phpunit",
-        "cs": "php-cs-fixer fix --ansi --verbose --dry-run --diff",
-        "cs-fix": "php-cs-fixer fix --ansi --verbose --diff --using-cache=yes",
-        "style": "@cs-fix"
-    },
-    "support": {
-        "forum": "http://forum.codeigniter.com/",
-        "source": "https://github.com/codeigniter4/CodeIgniter4",
-        "slack": "https://codeigniterchat.slack.com"
-    },
     "config": {
-        "allow-plugins": {
-            "phpstan/extension-installer": true,
-            "composer/package-versions-deprecated": true
-        }
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/codeigniter4/codeigniter4"
-        }
-    ]
+    "scripts": {
+        "test": "phpunit"
+    }
 }
