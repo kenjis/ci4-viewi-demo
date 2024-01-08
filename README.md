@@ -103,12 +103,13 @@ CodeIgniter v4.2.7 Command Line Tool - Server Time: 2022-10-20 20:04:40 UTC-05:0
 ```
 ## How Viewi Works with CodeIgniter
 
-TODO
+[CodeIgniter4 Viewi integration](https://viewi.net/docs/code-igniter)
 
 ## References
 
 - https://www.codeigniter.com/
 - https://viewi.net/
+- [CodeIgniter4 Viewi integration](https://viewi.net/docs/code-igniter)
 - [CodeIgniter4 User Guide](https://codeigniter4.github.io/CodeIgniter4/)
 - [CodeIgniter4 Viewi Tour of Heroes app](https://github.com/kenjis/ci4-viewi-tour-of-heroes)
 
