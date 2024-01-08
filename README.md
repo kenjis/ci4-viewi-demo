@@ -3,6 +3,34 @@
 > Viewi allows you to create reactive web applications using your favorite PHP. It converts your code into native javascript code to run it in the browser. This way, you get a perfectly rendered HTML page on the first load, and at the same time, your page will remain reactive without requesting each next page on link clicks, etc.
 https://viewi.net/
 
+```console
+$ git clone https://github.com/kenjis/ci4-viewi-demo.git
+$ cd ci4-viewi-demo/
+$ composer install
+```
+
+Assuming you have done composer install/update.
+
+In first terminal:
+
+`cd app/ViewiApp/js/`
+
+Install NPM packages, if you are running for the first time:
+
+`npm install`
+
+Run watch mode:
+
+`npm run watch`
+
+In second terminal:
+
+```console
+php spark serve
+```
+
+Navigate to <http://localhost:8080/>.
+
 ![](docs/01-home.png)
 
 ![](docs/02-counter.png)
@@ -13,92 +41,71 @@ https://viewi.net/
 
 ![](docs/05-not-found.png)
 
-## How to Run
 
-```console
-$ git clone https://github.com/kenjis/ci4-viewi-demo.git
-$ cd ci4-viewi-demo/
-$ composer install
-```
+# CodeIgniter 4 Application Starter
 
-```console
-$ php spark serve
-```
+## What is CodeIgniter?
 
-Navigate to <http://localhost:8080/>.
+CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
+More information can be found at the [official site](https://codeigniter.com).
 
-## Folder Structure
+This repository holds a composer-installable app starter.
+It has been built from the
+[development repository](https://github.com/codeigniter4/CodeIgniter4).
 
-```
-.
-├── app/
-│   ├── Adapters/ ... Adapters for Viewi
-│   └── ViewiApp/ ... Viewi App
-│        ├── Components/
-│        │   ├── Models/
-│        │   ├── Services/
-│        │   └── Views/
-│        ├── build/     ... Do not touch
-│        ├── config.php ... Viewi config file
-│        └── routes.php ... Viewi routes file
-├── public/
-│   └── viewi-build/ ... Do not touch
-```
+More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
 
-## How to Code
+The user guide corresponding to the latest version of the framework can be found
+[here](https://codeigniter4.github.io/userguide/).
 
-`app/ViewiApp/Components/Views/Counter/Counter.php`:
-```php
-<?php
+## Installation & updates
 
-namespace Components\Views\Counter;
+`composer create-project codeigniter4/appstarter` then `composer update` whenever
+there is a new release of the framework.
 
-use Viewi\BaseComponent;
+When updating, check the release notes to see if there are any changes you might need to apply
+to your `app` folder. The affected files can be copied or merged from
+`vendor/codeigniter4/framework/app`.
 
-class Counter extends BaseComponent
-{
-    public int $count = 0;
+## Setup
 
-    public function increment()
-    {
-        $this->count++;
-    }
+Copy `env` to `.env` and tailor for your app, specifically the baseURL
+and any database settings.
 
-    public function decrement()
-    {
-        $this->count--;
-    }
-}
-```
+## Important Change with index.php
 
-`app/ViewiApp/Components/Views/Counter/Counter.html`:
-```html
-<button (click)="decrement()" class="mui-btn mui-btn--accent">-</button>
-<span class="mui--text-dark mui--text-title">$count</span>
-<button (click)="increment()" class="mui-btn mui-btn--accent">+</button>
-```
+`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
+for better security and separation of components.
 
-## How to Confirm Routes
+This means that you should configure your web server to "point" to your project's *public* folder, and
+not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
+framework are exposed.
 
-```console
-$ php spark routes
+**Please** read the user guide for a better explanation of how CI4 works!
 
-CodeIgniter v4.2.7 Command Line Tool - Server Time: 2022-10-17 05:19:05 UTC-05:00
+## Repository Management
 
-+--------+--------------------+----------------------------------------+-----------+----------------+---------------+
-| Method | Route              | Name                                   | Handler   | Before Filters | After Filters |
-+--------+--------------------+----------------------------------------+-----------+----------------+---------------+
-| GET    | api/posts/([0-9]+) | »                                      | (Closure) |                | toolbar       |
-| GET    | /                  | Components\Views\Home\HomePage         | (Closure) |                | toolbar       |
-| GET    | counter            | Components\Views\Pages\CounterPage     | (Closure) |                | toolbar       |
-| GET    | todo               | Components\Views\Pages\TodoAppPage     | (Closure) |                | toolbar       |
-| GET    | posts/([^/]+)      | Components\Views\Posts\PostsPage       | (Closure) |                | toolbar       |
-| GET    | (.*)               | Components\Views\NotFound\NotFoundPage | (Closure) |                | toolbar       |
-+--------+--------------------+----------------------------------------+-----------+----------------+---------------+
-```
+We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
+We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
+FEATURE REQUESTS.
 
-## References
+This repository is a "distribution" one, built by our release preparation script.
+Problems with it can be raised on our forum, or as issues in the main repository.
 
-- https://www.codeigniter.com/
-- https://viewi.net/
-- https://github.com/kenjis/ci4-viewi-tour-of-heroes
+## Server Requirements
+
+PHP version 7.4 or higher is required, with the following extensions installed:
+
+- [intl](http://php.net/manual/en/intl.requirements.php)
+- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+
+> **Warning**
+> The end of life date for PHP 7.4 was November 28, 2022. If you are
+> still using PHP 7.4, you should upgrade immediately. The end of life date
+> for PHP 8.0 will be November 26, 2023.
+
+Additionally, make sure that the following extensions are enabled in your PHP:
+
+- json (enabled by default - don't turn it off)
+- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
+- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library

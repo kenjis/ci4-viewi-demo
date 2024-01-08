@@ -49,7 +49,7 @@ class Toolbar extends BaseConfig
      * Collect Var Data
      * --------------------------------------------------------------------------
      *
-     * If set to false var data from the views will not be colleted. Usefull to
+     * If set to false var data from the views will not be colleted. Useful to
      * avoid high memory usage when there are lots of data passed to the view.
      */
     public bool $collectVarData = true;
@@ -88,4 +88,31 @@ class Toolbar extends BaseConfig
      * `$maxQueries` defines the maximum amount of queries that will be stored.
      */
     public int $maxQueries = 100;
+
+    /**
+     * --------------------------------------------------------------------------
+     * Watched Directories
+     * --------------------------------------------------------------------------
+     *
+     * Contains an array of directories that will be watched for changes and
+     * used to determine if the hot-reload feature should reload the page or not.
+     * We restrict the values to keep performance as high as possible.
+     *
+     * NOTE: The ROOTPATH will be prepended to all values.
+     */
+    public array $watchedDirectories = [
+        'app',
+    ];
+
+    /**
+     * --------------------------------------------------------------------------
+     * Watched File Extensions
+     * --------------------------------------------------------------------------
+     *
+     * Contains an array of file extensions that will be watched for changes and
+     * used to determine if the hot-reload feature should reload the page or not.
+     */
+    public array $watchedExtensions = [
+        'php', 'css', 'js', 'html', 'svg', 'json', 'env',
+    ];
 }
