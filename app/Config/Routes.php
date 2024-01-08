@@ -22,6 +22,13 @@ $routes->get('api/posts/(:num)', static function ($id) {
     return $response;
 });
 
+
+/**
+ * Viewi set up
+ * The idea is to let Viewi handle its own routes by registering a 404 action
+ * @param RouteCollection $routes 
+ * @return void 
+ */
 function viewiSetUp(RouteCollection $routes)
 {
     /**
@@ -38,9 +45,4 @@ function viewiSetUp(RouteCollection $routes)
     $routes->set404Override('App\ViewiBridge\ViewiHandler::handle');
 }
 
-// I do not know the specifics of CI4, so using this for troubleshooting
-try {
-    viewiSetUp($routes);
-} catch (Throwable $ex) {
-    echo $ex->__toString();
-}
+viewiSetUp($routes);

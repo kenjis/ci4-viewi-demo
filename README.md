@@ -3,16 +3,6 @@
 > Viewi allows you to create reactive web applications using your favorite PHP. It converts your code into native javascript code to run it in the browser. This way, you get a perfectly rendered HTML page on the first load, and at the same time, your page will remain reactive without requesting each next page on link clicks, etc.
 https://viewi.net/
 
-![](docs/01-home.png)
-
-![](docs/02-counter.png)
-
-![](docs/03-todo.png)
-
-![](docs/04-post.png)
-
-![](docs/05-not-found.png)
-
 ```console
 $ git clone https://github.com/kenjis/ci4-viewi-demo.git
 $ cd ci4-viewi-demo/
@@ -25,7 +15,7 @@ In first terminal:
 
 `cd app/ViewiApp/js/`
 
-Install, if you are running for the first time:
+Install NPM packages, if you are running for the first time:
 
 `npm install`
 
@@ -40,6 +30,16 @@ php spark serve
 ```
 
 Navigate to <http://localhost:8080/>.
+
+![](docs/01-home.png)
+
+![](docs/02-counter.png)
+
+![](docs/03-todo.png)
+
+![](docs/04-post.png)
+
+![](docs/05-not-found.png)
 
 
 # CodeIgniter 4 Application Starter

@@ -131,6 +131,6 @@ nb-configuration.xml
 **/build/**/*
 !**/build/.gitkeep
 **/viewi-ci4/**/*
-viewi-app/js/app/**/*
-viewi-app/js/dist/**/*
+**/ViewiApp/js/app/**/*
+**/ViewiApp/js/dist/**/*
 **/node_modules
