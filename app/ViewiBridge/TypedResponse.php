@@ -11,6 +11,13 @@ class TypedResponse extends Response
      */
     private $rawData;
 
+    public function __construct()
+    {
+        $config = config('App');
+
+        parent::__construct($config);
+    }
+
     public function setJSON($body, bool $unencoded = false)
     {
         $this->rawData = $body;
