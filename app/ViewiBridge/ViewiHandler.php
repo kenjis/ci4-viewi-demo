@@ -30,7 +30,9 @@ class ViewiHandler extends BaseController
         if ($action instanceof ComponentRoute) {
             $viewiRequest = new Request($urlPath, strtolower($requestMethod));
             $response = self::$viewiApp->engine()->render($action->component, $match['params'], $viewiRequest);
-
+            if ($routeItem->transformCallback !== null && $response instanceof \Viewi\Components\Http\Message\Response) {
+                $response = ($routeItem->transformCallback)($response);
+            }
             $this->response->setBody($response->body);
             foreach ($response->headers as $key => $value) {
                 $this->response->setHeader($key, $value);
