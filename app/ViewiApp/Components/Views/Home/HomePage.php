@@ -3,8 +3,8 @@
 namespace Components\Views\Home;
 
 use Components\Models\PostModel;
-use Viewi\BaseComponent;
-use Viewi\Common\HttpClient;
+use Viewi\Components\BaseComponent;
+use Viewi\Components\Http\HttpClient;
 
 class HomePage extends BaseComponent
 {
@@ -12,9 +12,13 @@ class HomePage extends BaseComponent
 
     public ?PostModel $post = null;
 
-    public function __init(HttpClient $http)
+    public function __construct(private HttpClient $http)
     {
-        $http->get('/api/posts/5')->then(function (PostModel $data) {
+    }
+
+    public function init()
+    {
+        $this->http->get('/api/posts/5')->then(function (PostModel $data) {
             $this->post = $data;
         }, function ($error) {
             echo $error;

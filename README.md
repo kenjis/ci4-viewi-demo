@@ -3,21 +3,30 @@
 > Viewi allows you to create reactive web applications using your favorite PHP. It converts your code into native javascript code to run it in the browser. This way, you get a perfectly rendered HTML page on the first load, and at the same time, your page will remain reactive without requesting each next page on link clicks, etc.
 https://viewi.net/
 
-![](docs/01-home.png)
-![](docs/02-counter.png)
-![](docs/03-todo.png)
-![](docs/05-not-found.png)
-
-## How to Run
-
 ```console
 $ git clone https://github.com/kenjis/ci4-viewi-demo.git
 $ cd ci4-viewi-demo/
 $ composer install
 ```
 
+Assuming you have done composer install/update.
+
+In first terminal:
+
+`cd app/ViewiApp/js/`
+
+Install NPM packages, if you are running for the first time:
+
+`npm install`
+
+Run watch mode:
+
+`npm run watch`
+
+In second terminal:
+
 ```console
-$ php spark serve
+php spark serve
 ```
 
 Navigate to <http://localhost:8080/>.
@@ -48,7 +57,7 @@ Navigate to <http://localhost:8080/>.
 
 namespace Components\Views\Counter;
 
-use Viewi\BaseComponent;
+use Viewi\Components\BaseComponent;
 
 class Counter extends BaseComponent
 {
@@ -68,9 +77,9 @@ class Counter extends BaseComponent
 
 `app/ViewiApp/Components/Views/Counter/Counter.html`:
 ```html
-<button (click)="decrement()" class="mui-btn mui-btn--accent">-</button>
+<button (click)="decrement" class="mui-btn mui-btn--accent">-</button>
 <span class="mui--text-dark mui--text-title">$count</span>
-<button (click)="increment()" class="mui-btn mui-btn--accent">+</button>
+<button (click)="increment" class="mui-btn mui-btn--accent">+</button>
 ```
 
 ## How to Confirm Routes
@@ -94,12 +103,13 @@ CodeIgniter v4.2.7 Command Line Tool - Server Time: 2022-10-20 20:04:40 UTC-05:0
 ```
 ## How Viewi Works with CodeIgniter
 
-See [CodeIgniter 4 Integration | Viewi](https://viewi.net/docs/integrations-code-igniter4).
+[CodeIgniter4 Viewi integration](https://viewi.net/docs/code-igniter)
 
 ## References
 
 - https://www.codeigniter.com/
 - https://viewi.net/
+- [CodeIgniter4 Viewi integration](https://viewi.net/docs/code-igniter)
 - [CodeIgniter4 User Guide](https://codeigniter4.github.io/CodeIgniter4/)
-- [CodeIgniter 4 Integration | Viewi](https://viewi.net/docs/integrations-code-igniter4)
 - [CodeIgniter4 Viewi Tour of Heroes app](https://github.com/kenjis/ci4-viewi-tour-of-heroes)
+

@@ -3,20 +3,17 @@
 namespace Components\Views\StatefulTodoApp;
 
 use Components\Services\Reducers\TodoReducer;
-use Viewi\BaseComponent;
-use Viewi\DOM\Events\DOMEvent;
+use Viewi\Components\BaseComponent;
+use Viewi\Components\DOM\DomEvent;
 
 class StatefulTodoApp extends BaseComponent
 {
     public string $text = '';
-    public TodoReducer $todo;
-
-    public function __init(TodoReducer $reducer)
+    public function __construct(public TodoReducer $todo)
     {
-        $this->todo = $reducer;
     }
 
-    public function handleSubmit(DOMEvent $event)
+    public function handleSubmit(DomEvent $event)
     {
         $event->preventDefault();
         if (strlen($this->text) == 0) {

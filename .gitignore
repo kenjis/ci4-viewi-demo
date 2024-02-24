@@ -61,6 +61,7 @@ writable/uploads/*
 !writable/uploads/index.html
 
 writable/debugbar/*
+!writable/debugbar/.gitkeep
 
 php_errors.log
 
@@ -125,4 +126,11 @@ nb-configuration.xml
 /phpunit*.xml
 /.phpunit.*.cache
 
-viewi-build/
+**/build/**/*
+!**/build/.gitkeep
+**/build/**/*
+!**/build/.gitkeep
+**/viewi-ci4/**/*
+**/ViewiApp/js/app/**/*
+**/ViewiApp/js/dist/**/*
+**/node_modules
