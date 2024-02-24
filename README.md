@@ -10,9 +10,9 @@ https://viewi.net/
 ## Installation
 
 ```console
-$ git clone https://github.com/kenjis/ci4-viewi-demo.git
-$ cd ci4-viewi-demo/
-$ composer install
+git clone https://github.com/kenjis/ci4-viewi-demo.git
+cd ci4-viewi-demo/
+composer install
 ```
 
 ## Running Application
@@ -21,17 +21,17 @@ Assuming you have done composer install/update.
 
 In the first terminal:
 ```console
-$ cd app/ViewiApp/js/
+cd app/ViewiApp/js/
 ```
 
 Install NPM packages, if you are running for the first time:
 ```console
-$ npm install
+npm install
 ```
 
 Run watch mode:
 ```console
-$ npm run watch
+npm run watch
 ```
 
 In the second terminal:
