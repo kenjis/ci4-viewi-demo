@@ -1,7 +1,13 @@
 # CodeIgniter4 Viewi Demo
 
-> Viewi allows you to create reactive web applications using your favorite PHP. It converts your code into native javascript code to run it in the browser. This way, you get a perfectly rendered HTML page on the first load, and at the same time, your page will remain reactive without requesting each next page on link clicks, etc.
+> Viewi allows you to create reactive web applications using your favorite PHP.
+> It converts your code into native javascript code to run it in the browser.
+> This way, you get a perfectly rendered HTML page on the first load, and at the
+> same time, your page will remain reactive without requesting each next page on
+> link clicks, etc.
 https://viewi.net/
+
+## Installation
 
 ```console
 $ git clone https://github.com/kenjis/ci4-viewi-demo.git
@@ -9,22 +15,26 @@ $ cd ci4-viewi-demo/
 $ composer install
 ```
 
+## Running Application
+
 Assuming you have done composer install/update.
 
-In first terminal:
-
-`cd app/ViewiApp/js/`
+In the first terminal:
+```console
+$ cd app/ViewiApp/js/
+```
 
 Install NPM packages, if you are running for the first time:
-
-`npm install`
+```console
+$ npm install
+```
 
 Run watch mode:
+```console
+$ npm run watch
+```
 
-`npm run watch`
-
-In second terminal:
-
+In the second terminal:
 ```console
 php spark serve
 ```
