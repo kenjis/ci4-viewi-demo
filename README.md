@@ -36,8 +36,8 @@ Navigate to <http://localhost:8080/>.
 ```
 .
 ├── app/
-│   ├── Adapters/ ... Adapters for Viewi
-│   └── ViewiApp/ ... Viewi App
+│   ├── ViewiBridge/ ... Adapters for Viewi
+│   └── ViewiApp/    ... Viewi App
 │        ├── Components/
 │        │   ├── Models/
 │        │   ├── Services/
@@ -112,4 +112,3 @@ CodeIgniter v4.2.7 Command Line Tool - Server Time: 2022-10-20 20:04:40 UTC-05:0
 - [CodeIgniter4 Viewi integration](https://viewi.net/docs/code-igniter)
 - [CodeIgniter4 User Guide](https://codeigniter4.github.io/CodeIgniter4/)
 - [CodeIgniter4 Viewi Tour of Heroes app](https://github.com/kenjis/ci4-viewi-tour-of-heroes)
-
