@@ -87,20 +87,17 @@ class Counter extends BaseComponent
 ```console
 $ php spark routes
 
-CodeIgniter v4.2.7 Command Line Tool - Server Time: 2022-10-20 20:04:40 UTC-05:00
+CodeIgniter v4.4.4 Command Line Tool - Server Time: 2024-02-24 08:15:13 UTC+00:00
 
-+--------+--------------------+----------------------------------------+--------------------------------------+----------------+---------------+
-| Method | Route              | Name                                   | Handler                              | Before Filters | After Filters |
-+--------+--------------------+----------------------------------------+--------------------------------------+----------------+---------------+
-| GET    | api/posts/([0-9]+) | »                                      | \App\Controllers\Api\Posts::index/$1 |                | toolbar       |
-| GET    | /                  | Components\Views\Home\HomePage         | (Closure)                            |                | toolbar       |
-| GET    | counter            | Components\Views\Pages\CounterPage     | (Closure)                            |                | toolbar       |
-| GET    | todo               | Components\Views\Pages\TodoAppPage     | (Closure)                            |                | toolbar       |
-| GET    | posts/([^/]+)      | Components\Views\Posts\PostsPage       | (Closure)                            |                | toolbar       |
-| GET    | (.*)               | Components\Views\NotFound\NotFoundPage | (Closure)                            |                | toolbar       |
-+--------+--------------------+----------------------------------------+--------------------------------------+----------------+---------------+
-
++--------+--------------------+------+--------------------------------------+----------------+---------------+
+| Method | Route              | Name | Handler                              | Before Filters | After Filters |
++--------+--------------------+------+--------------------------------------+----------------+---------------+
+| GET    | api/posts/([0-9]+) | »    | \App\Controllers\Api\Posts::index/$1 |                | toolbar       |
++--------+--------------------+------+--------------------------------------+----------------+---------------+
 ```
+
+See `app/ViewiApp/routes.php` for routes by Viewi.
+
 ## How Viewi Works with CodeIgniter
 
 [CodeIgniter4 Viewi integration](https://viewi.net/docs/code-igniter)
