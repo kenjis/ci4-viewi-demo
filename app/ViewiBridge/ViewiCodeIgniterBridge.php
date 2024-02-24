@@ -2,6 +2,7 @@
 
 namespace App\ViewiBridge;
 
+use CodeIgniter\CodeIgniter;
 use CodeIgniter\Config\Services;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\URI;

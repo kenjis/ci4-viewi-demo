@@ -3,6 +3,7 @@
 namespace App\ViewiBridge;
 
 use CodeIgniter\HTTP\Response;
+use Config\App;
 
 class TypedResponse extends Response
 {
@@ -13,6 +14,7 @@ class TypedResponse extends Response
 
     public function __construct()
     {
+        /** @var App $config */
         $config = config('App');
 
         parent::__construct($config);

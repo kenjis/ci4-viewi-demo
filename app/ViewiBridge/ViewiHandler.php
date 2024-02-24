@@ -8,6 +8,7 @@ use Throwable;
 use Viewi\App;
 use Viewi\Components\Http\Message\Request;
 use Viewi\Router\ComponentRoute;
+use Viewi\Router\RouteItem;
 use Viewi\Router\Router;
 
 class ViewiHandler extends BaseController
@@ -23,7 +24,7 @@ class ViewiHandler extends BaseController
         if ($match === null) {
             throw new Exception('No route was matched!');
         }
-        /** @var RouteItem */
+        /** @var RouteItem $routeItem */
         $routeItem = $match['item'];
         $action = $routeItem->action;
 
